@@ -41,4 +41,5 @@ jspm_packages
 # config
 
 config/development.*
+config/development-*.*
 config/local.*
