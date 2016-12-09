@@ -2,12 +2,14 @@ import config from "config";
 
 import app from "./lib/app.js";
 import httpServer from "./lib/http/server.js";
+import socketServer from "./lib/ws/server.js";
 
 
 
 (function main() {
     checkEnv();
     startHttpServer();
+    startSocketServer();
 })();
 
 function checkEnv() {
@@ -32,4 +34,8 @@ function startHttpServer() {
     httpServer.listen(port, () => {
         console.log(`The server is listening on port: ${port}`);
     });
+}
+
+function startSocketServer() {
+    socketServer.attach(httpServer);
 }
